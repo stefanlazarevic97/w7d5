@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :users
+  resources :subs, except: [:destroy]
   resource :session
 end

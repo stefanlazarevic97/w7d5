@@ -10,6 +10,12 @@
     </head>
 
     <body>
+
+        <% if flash[:notice] %>
+            <% flash[:notice].each do |notice| %>
+                <p><%= notice %></p>
+            <% end %>
+        <% end %>
         <% if logged_in? %>
             <h2>Welcome, <%= current_user.username %></h2>
 
@@ -19,8 +25,8 @@
                 <button>Sign Out</button>
             </form>
         <% else %>
-            <a href="new_session_url">Log In</a>
-            <a href="new_user_url">Sign Up</a>
+            <a href="<%= new_session_url %>">Log In</a>
+            <a href="<%= new_user_url %>">Sign Up</a>
         <% end %>
 
         <%= yield %>
